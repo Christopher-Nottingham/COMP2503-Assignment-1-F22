@@ -151,6 +151,10 @@ public class Employee {
     this.maxHours = maxHours;
   }
 
-
+  public void calcGrossPay(int maxHours) {
+	  
+	  
+	  
+  }
 
 }

@@ -1,38 +1,13 @@
 package model;
 
 public class Employee {
-  private int empNp;
+  private int empNo;
   private String empName;
   private String department;
   private char type;
   private double payRate;
-  private int maxHours;
+  private double maxHours;
 
-  Employee empCopy = new Employee();
-
-  public Employee(int empCopyempNp, String empName, String department) {
-
-
-
-  }
-
-  // copy constructor
-  public Employee() {
-    setDepartment(null);
-    setEmpName(null);
-    setEmpNp(0);
-    setMaxHours(0);
-    setPayRate(0);
-    setType('n');
-  }
-
-  // copy constructor
-  public Employee(Employee copyEmployee) {
-    empNp = copyEmployee.empNp;
-    empName = copyEmployee.empName;
-    department = copyEmployee.department;
-
-  }
 
 
   // normal constuctor
@@ -44,10 +19,10 @@ public class Employee {
    * @param payRate
    * @param maxHours
    */
-  public Employee(int empNp, String empName, String department, char type, double payRate,
-      int maxHours) {
+  public Employee(int empNo, String empName, String department, char type, double payRate,
+      double maxHours) {
     super();
-    this.empNp = empNp;
+    this.empNo = empNo;
     this.empName = empName;
     this.department = department;
     this.type = type;
@@ -56,19 +31,47 @@ public class Employee {
   }
 
 
+  // Employee empCopy = new Employee();
+
+  // public Employee(int empCopyempNp, String empName, String department) {
+  //
+  //
+  //
+  // }
+
+  // copy constructor
+  public Employee() {
+    setDepartment(null);
+    setEmpName(null);
+    setEmpNo(0);
+    setMaxHours(0);
+    setPayRate(0);
+    setType('n');
+  }
+
+  // copy constructor
+  public Employee(Employee copyEmployee) {
+    empNo = copyEmployee.empNo;
+    empName = copyEmployee.empName;
+    department = copyEmployee.department;
+
+  }
+
+
+
   /**
    * @return the empNp
    */
-  public int getEmpNp() {
-    return empNp;
+  public int getEmpNo() {
+    return empNo;
   }
 
 
   /**
    * @param empNp the empNp to set
    */
-  public void setEmpNp(int empNp) {
-    this.empNp = empNp;
+  public void setEmpNo(int empNp) {
+    this.empNo = empNo;
   }
 
 
@@ -139,7 +142,7 @@ public class Employee {
   /**
    * @return the maxHours
    */
-  public int getMaxHours() {
+  public double getMaxHours() {
     return maxHours;
   }
 

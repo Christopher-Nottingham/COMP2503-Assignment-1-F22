@@ -154,17 +154,24 @@ public class Employee {
     this.maxHours = maxHours;
   }
 
+  /**
+   * Authors: Ethan and Christopher
+   * This method is used to calculate the gross pay of employees
+   * @param maxHours the max hours worked
+   * @return weekly gross pay.
+   */
   public double calcGrossPay(int maxHours) {
 	  
 	  double otHours;
 	  double otPay;
 	  
 	  switch(type) {
-	  case'S':
+	  case'S': //Ethan
+		  getType();
 		  grossPay = payRate / 52;
 		  break;
 		 
-	  case'H':
+	  case'H': //Ethan
 		  if(maxHours <=40) {
 			  grossPay = payRate*40;
 		  }else if (maxHours>40 && maxHours<=60) {
@@ -176,13 +183,23 @@ public class Employee {
 	 return grossPay; 
   }
 
-  
+  /**
+   * Author: Ethan
+   * This method is used to calculate the CPP Deduction.
+   * @param grossPay gross weekly pay of employees before taxes.
+   * @return CPP deduction
+   */
   public double calcCPP(double grossPay) {
 	  double cppDed;
 	  cppDed = grossPay*0.475;
 	  return cppDed;
   }
-  
+  /**
+   * Author: Ethan
+   * This method is used to calculate the EI Deduction.
+   * @param grossPay gross weekly pay of employees before taxes.
+   * @return EI deduction
+   */
   public double calcEI(double grossPay) {
 	  double eiDed;
 	  eiDed=grossPay*0.18;
@@ -190,6 +207,12 @@ public class Employee {
 	  return eiDed;
   }
   
+  /**
+   * Author: Ethan
+   * This method is for calculating the extended health benefits for hourly and salary employees.
+   * @param grossPay gross weekly pay of employee before taxes. 
+   * @return Extended Health Deduction
+   */
   public double calcExtHealth(double grossPay) {
 	  double extDed = 0;
 	  

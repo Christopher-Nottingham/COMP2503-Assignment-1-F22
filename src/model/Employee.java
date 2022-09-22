@@ -1,38 +1,13 @@
 package model;
 
 public class Employee {
-  private int empNp;
+  private int empNo;
   private String empName;
   private String department;
   private char type;
   private double payRate;
-  private int maxHours;
-
-  Employee empCopy = new Employee();
-
-  public Employee(int empCopyempNp, String empName, String department) {
-
-
-
-  }
-
-  // copy constructor
-  public Employee() {
-    setDepartment(null);
-    setEmpName(null);
-    setEmpNp(0);
-    setMaxHours(0);
-    setPayRate(0);
-    setType('n');
-  }
-
-  // copy constructor
-  public Employee(Employee copyEmployee) {
-    empNp = copyEmployee.empNp;
-    empName = copyEmployee.empName;
-    department = copyEmployee.department;
-
-  }
+  private double maxHours;
+  private double grossPay;
 
 
   // normal constuctor
@@ -44,10 +19,10 @@ public class Employee {
    * @param payRate
    * @param maxHours
    */
-  public Employee(int empNp, String empName, String department, char type, double payRate,
-      int maxHours) {
+  public Employee(int empNo, String empName, String department, char type, double payRate,
+      double maxHours) {
     super();
-    this.empNp = empNp;
+    this.empNo = empNo;
     this.empName = empName;
     this.department = department;
     this.type = type;
@@ -56,19 +31,47 @@ public class Employee {
   }
 
 
+  // Employee empCopy = new Employee();
+
+  // public Employee(int empCopyempNp, String empName, String department) {
+  //
+  //
+  //
+  // }
+
+  // copy constructor
+  public Employee() {
+    setDepartment(null);
+    setEmpName(null);
+    setEmpNo(0);
+    setMaxHours(0);
+    setPayRate(0);
+    setType('n');
+  }
+
+  // copy constructor
+  public Employee(Employee copyEmployee) {
+    empNo = copyEmployee.empNo;
+    empName = copyEmployee.empName;
+    department = copyEmployee.department;
+
+  }
+
+
+
   /**
    * @return the empNp
    */
-  public int getEmpNp() {
-    return empNp;
+  public int getEmpNo() {
+    return empNo;
   }
 
 
   /**
    * @param empNp the empNp to set
    */
-  public void setEmpNp(int empNp) {
-    this.empNp = empNp;
+  public void setEmpNo(int empNp) {
+    this.empNo = empNo;
   }
 
 
@@ -139,7 +142,7 @@ public class Employee {
   /**
    * @return the maxHours
    */
-  public int getMaxHours() {
+  public double getMaxHours() {
     return maxHours;
   }
 
@@ -151,10 +154,52 @@ public class Employee {
     this.maxHours = maxHours;
   }
 
-  public void calcGrossPay(int maxHours) {
+  public double calcGrossPay(int maxHours) {
 	  
+	  double otHours;
+	  double otPay;
 	  
-	  
+	  switch(type) {
+	  case'S':
+		  grossPay = payRate / 52;
+		  break;
+		 
+	  case'H':
+		  if(maxHours <=40) {
+			  grossPay = payRate*40;
+		  }else if (maxHours>40 && maxHours<=60) {
+			  otHours = maxHours - 40;
+			  otPay = otHours*(payRate*1.5);
+			  grossPay = (40*payRate) + otPay;
+		  }
+	  }
+	 return grossPay; 
   }
 
+  
+  public double calcCPP(double grossPay) {
+	  double cppDed;
+	  cppDed = grossPay*0.475;
+	  return cppDed;
+  }
+  
+  public double calcEI(double grossPay) {
+	  double eiDed;
+	  eiDed=grossPay*0.18;
+	  
+	  return eiDed;
+  }
+  
+  public double calcExtHealth(double grossPay) {
+	  double extDed = 0;
+	  
+	  if (type == 'S') {
+		  extDed = grossPay*0.13;
+		  
+	  }else if(type == 'H') {
+		  extDed = grossPay*0.13;
+	  }
+	  
+	  return extDed;
+  }
 }

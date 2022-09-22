@@ -8,7 +8,7 @@ public class Employee {
 	private double payRate;
 	private double maxHours;
 	private double grossPay;
-
+	private double netPay;
 	// normal constuctor
 	/**
 	 * @param empNp
@@ -207,7 +207,7 @@ public class Employee {
  * @return
  */
 	public double calcNetPay() {
-	double netPay;
+	netPay = 0;
 
 		if (type == 'S') {
 			
@@ -251,7 +251,7 @@ public class Employee {
 
 
   /**
-   * Author: Ethan
+   * Author: Ethan koop
    * This method is used to calculate the CPP Deduction.
    * @param grossPay gross weekly pay of employees before taxes.
    * @return CPP deduction
@@ -262,7 +262,7 @@ public class Employee {
 	  return cppDed;
   }
   /**
-   * Author: Ethan
+   * Author: Ethan koop
    * This method is used to calculate the EI Deduction.
    * @param grossPay gross weekly pay of employees before taxes.
    * @return EI deduction
@@ -275,7 +275,7 @@ public class Employee {
   }
   
   /**
-   * Author: Ethan
+   * Author: Ethan koop
    * This method is for calculating the extended health benefits for hourly and salary employees.
    * @param grossPay gross weekly pay of employee before taxes. 
    * @return Extended Health Deduction
@@ -291,5 +291,29 @@ public class Employee {
 	  }
 	  
 	  return extDed;
+  }
+  
+  /**
+   * Author: Ethan Koop
+   * Print method used to print employee information
+   */
+  public void printEmpData() {
+	  System.out.println("Employee Number: " + empNo);
+	  System.out.println("Employee Name:   " + empName);
+	  if (type == 'S') {
+		  System.out.println("Employee Type:   " + "Salary");
+	  }else if (type == 'H') {
+		  System.out.println("Employee Type:   " + "Hourly");
+	  }else if(type == 'C') {
+		  System.out.println("Employee Type:   " + "Consultant");
+	  }
+	  System.out.println("Employee Department:  " + department);
+	  
+	  System.out.println("Employee Pay Rate:  " + payRate);
+	  
+	  System.out.println("Employee Hours:  " + maxHours);
+	  
+	  
+	  System.out.println("Employee Net Pay:  " + netPay);
   }
 }

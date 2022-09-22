@@ -45,8 +45,10 @@ public class DatabaseManager {
 
 
         employeeDB.add(theNewEmployee);
+        // theNewEmployee.compareTo(theNewEmployee);
       }
 
+   
 
 
     } catch (FileNotFoundException e2) {
@@ -57,6 +59,9 @@ public class DatabaseManager {
 
 
   }
+
+
+
 
 
 

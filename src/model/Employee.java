@@ -166,31 +166,11 @@ public class Employee {
 		return grossPay;
 	}
 
-	public double calcCPP(double grossPay) {
-		double cppDed;
-		cppDed = grossPay * 0.475;
-		return cppDed;
-	}
+	
 
-	public double calcEI(double grossPay) {
-		double eiDed;
-		eiDed = grossPay * 0.18;
+	
 
-		return eiDed;
-	}
-
-	public double calcExtHealth(double grossPay) {
-		double extDed = 0;
-
-		if (type == 'S') {
-			extDed = grossPay * 0.13;
-
-		} else if (type == 'H') {
-			extDed = grossPay * 0.13;
-		}
-
-		return extDed;
-	}
+	
 
 	/**
 	 *  @author Christopher Nottingham
@@ -267,28 +247,7 @@ public class Employee {
 		// TODO Auto-generated method stub
 
 	}
-  public double calcGrossPay(int maxHours) {
-	  
-	  double otHours;
-	  double otPay;
-	  
-	  switch(type) {
-	  case'S': //Ethan
-		  getType();
-		  grossPay = payRate / 52;
-		  break;
-		 
-	  case'H': //Ethan
-		  if(maxHours <=40) {
-			  grossPay = payRate*40;
-		  }else if (maxHours>40 && maxHours<=60) {
-			  otHours = maxHours - 40;
-			  otPay = otHours*(payRate*1.5);
-			  grossPay = (40*payRate) + otPay;
-		  }
-	  }
-	 return grossPay; 
-  }
+
 
 
   /**

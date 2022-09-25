@@ -9,7 +9,7 @@ import model.Employee;
 public class DatabaseManager {
 
   private File database;
-  private final String DB_PATH = "res/Employee Test Data.txt";
+  private final String DB_PATH = "res/EmployeeTestData.txt";
   private ArrayList<Employee> employeeDB;
 
   private Scanner fileReader;
@@ -48,7 +48,11 @@ public class DatabaseManager {
         // theNewEmployee.compareTo(theNewEmployee);
       }
 
-   
+      for (Employee e : employeeDB) {
+        e.printEmpData(e);;
+
+      }
+
 
 
     } catch (FileNotFoundException e2) {
@@ -62,6 +66,13 @@ public class DatabaseManager {
 
 
 
+  // public void calcuatingPay() {
+  // for (Employee e : ) {
+  //
+  // // if (e.)
+  // }
+  //
+  // }
 
 
 

@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"controller","c":"DatabaseManager","l":"DatabaseManager()","url":"%3Cinit%3E()"},{"p":"controller","c":"DatabaseManager","l":"loabDB()"}]

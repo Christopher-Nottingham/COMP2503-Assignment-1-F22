@@ -1,5 +1,10 @@
 package model;
 
+/**
+ * A object class to simulate an employee
+ * @author Christopher Nottingham and Ethan Koop 
+ *
+ */
 public class Employee {
   private int empNo;//the employee number
   private String empName;// the employee name
@@ -276,12 +281,15 @@ public class Employee {
   public int compareTo(Employee otherEmp) {
 
     if (this.empNo < otherEmp.getEmpNo()) {
+      //System.out.println("The employee number of "+ otherEmp.getEmpNo() + " is bigger than employee number " + this.empNo);
       return -1;
 
     } else if (this.empNo == otherEmp.getEmpNo()) {
+    	 //System.out.println("The employee number of "+ otherEmp.getEmpNo() + " is equal to employee number " + this.empNo);
       return 0;
 
     } else {
+    	// System.out.println("The employee number of "+ otherEmp.getEmpNo() + " is less than employee number " + this.empNo);
       return 1;
     }
 
